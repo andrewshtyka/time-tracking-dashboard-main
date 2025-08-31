@@ -122,6 +122,7 @@ body {
 
 .c-tab {
   cursor: pointer;
+  user-select: none;
   display: inline-block;
   width: 100%;
   padding-top: 1.5rem;
