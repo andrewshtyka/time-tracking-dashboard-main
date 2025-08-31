@@ -200,6 +200,10 @@ body {
   align-items: center;
 
   overflow: hidden;
+
+  @media (width >= 64rem) {
+    height: 4rem;
+  }
 }
 
 /* #endregion = COMPONENTS */
