@@ -38,7 +38,7 @@ async function initAndStart() {
 //
 // get data from JSON
 async function getData() {
-  const dataJSON = "/public/data.json";
+  const dataJSON = "/data.json";
   const request = new Request(dataJSON);
 
   try {
