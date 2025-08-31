@@ -367,9 +367,9 @@
     <!-- Scripts -->
     <script src="./src/main.js" type="module" defer></script>
   </head>
-  <body>
+  <body class="u-flex:row u-flex:center">
     <main class="o-bg">
-      <article class="c-menu">
+      <article class="c-menu u-flex:col u-gc:1/4">
         <div class="c-user_info">
           <img
             class="o-img"
@@ -379,27 +379,27 @@
             height="64"
           />
           <div class="u-flex:col u-flex_gap:0.5rem">
-            <h1 class="f-preset:6 f-color:navy-200">Report for</h1>
-            <h2 class="f-preset:4">Jeremy Robson</h2>
+            <h1 class="f-preset:4 f-color:navy-200">Report for</h1>
+            <h2 class="f-preset:2">Jeremy Robson</h2>
           </div>
         </div>
         <nav>
-          <ul class="u-grid u-gc:3 u-grid_items:center">
+          <ul class="o-nav">
             <li class="u-flex:row u-width:100">
-              <a class="c-tab f-preset:5 f-weight:400" data-timeframe="daily"
+              <a class="c-tab f-preset:3 f-weight:400" data-timeframe="daily"
                 >Daily</a
               >
             </li>
             <li class="u-flex:row u-width:100">
               <a
-                class="c-tab f-preset:5 f-weight:400"
+                class="c-tab f-preset:3 f-weight:400"
                 data-timeframe="weekly"
                 data-tab-active
                 >Weekly</a
               >
             </li>
             <li class="u-flex:row u-width:100">
-              <a class="c-tab f-preset:5 f-weight:400" data-timeframe="monthly"
+              <a class="c-tab f-preset:3 f-weight:400" data-timeframe="monthly"
                 >Monthly</a
               >
             </li>
@@ -407,7 +407,7 @@
         </nav>
       </article>
 
-      <ul class="o-cards_list">
+      <ul class="o-cards_list u-gc:1/4">
         <li class="o-card">
           <div class="c-card_top u-bg_color:orange">
             <svg height="78" width="78">
@@ -416,19 +416,20 @@
           </div>
           <div class="c-card u-flex:col u-flex_gap:0.5rem">
             <div class="u-flex:row u-flex_justify:space-between">
-              <h3 class="f-preset:5">Work</h3>
-              <button type="button">
+              <h3 class="f-preset:3">Work</h3>
+              <button class="o-btn_secondary" type="button">
                 <svg height="20" width="20">
                   <use href="./src/assets/icons.svg#icon-ellipsis" />
                 </svg>
               </button>
             </div>
-            <div class="u-flex:row u-flex_justify:space-between">
-              <h4 class="f-preset:3">
-                <span data-activity="Work" data-current>0</span>
+            <div class="o-card_info">
+              <h4 class="f-preset:1">
+                <span data-activity="Work" data-current>-</span>
               </h4>
-              <p class="f-preset:6 f-color:navy-200">
-                Last Week - <span data-activity="Work" data-previous>0</span>
+              <p class="f-preset:4 f-color:navy-200">
+                Last Week -
+                <span data-activity="Work" data-previous>-</span>
               </p>
             </div>
           </div>
@@ -442,25 +443,26 @@
           </div>
           <div class="c-card u-flex:col u-flex_gap:0.5rem">
             <div class="u-flex:row u-flex_justify:space-between">
-              <h3 class="f-preset:5">Play</h3>
-              <button type="button">
+              <h3 class="f-preset:3">Play</h3>
+              <button class="o-btn_secondary" type="button">
                 <svg height="20" width="20">
                   <use href="./src/assets/icons.svg#icon-ellipsis" />
                 </svg>
               </button>
             </div>
-            <div class="u-flex:row u-flex_justify:space-between">
-              <h4 class="f-preset:3">
-                <span data-activity="Play" data-current>0</span>
+            <div class="o-card_info">
+              <h4 class="f-preset:1">
+                <span data-activity="Play" data-current>-</span>
               </h4>
-              <p class="f-preset:6 f-color:navy-200">
-                Last Week - <span data-activity="Play" data-previous>0</span>
+              <p class="f-preset:4 f-color:navy-200">
+                Last Week -
+                <span data-activity="Play" data-previous>-</span>
               </p>
             </div>
           </div>
         </li>
 
-         <li class="o-card">
+        <li class="o-card">
           <div class="c-card_top u-bg_color:pink">
             <svg height="78" width="78">
               <use href="./src/assets/icons.svg#icon-study" />
@@ -468,19 +470,20 @@
           </div>
           <div class="c-card u-flex:col u-flex_gap:0.5rem">
             <div class="u-flex:row u-flex_justify:space-between">
-              <h3 class="f-preset:5">Study</h3>
-              <button type="button">
+              <h3 class="f-preset:3">Study</h3>
+              <button class="o-btn_secondary" type="button">
                 <svg height="20" width="20">
                   <use href="./src/assets/icons.svg#icon-ellipsis" />
                 </svg>
               </button>
             </div>
-            <div class="u-flex:row u-flex_justify:space-between">
-              <h4 class="f-preset:3">
-                <span data-activity="Study" data-current>0</span>
+            <div class="o-card_info">
+              <h4 class="f-preset:1">
+                <span data-activity="Study" data-current>-</span>
               </h4>
-              <p class="f-preset:6 f-color:navy-200">
-                Last Week - <span data-activity="Study" data-previous>0</span>
+              <p class="f-preset:4 f-color:navy-200">
+                Last Week -
+                <span data-activity="Study" data-previous>-</span>
               </p>
             </div>
           </div>
@@ -494,19 +497,20 @@
           </div>
           <div class="c-card u-flex:col u-flex_gap:0.5rem">
             <div class="u-flex:row u-flex_justify:space-between">
-              <h3 class="f-preset:5">Exercise</h3>
-              <button type="button">
+              <h3 class="f-preset:3">Exercise</h3>
+              <button class="o-btn_secondary" type="button">
                 <svg height="20" width="20">
                   <use href="./src/assets/icons.svg#icon-ellipsis" />
                 </svg>
               </button>
             </div>
-            <div class="u-flex:row u-flex_justify:space-between">
-              <h4 class="f-preset:3">
-                <span data-activity="Exercise" data-current>0</span>
+            <div class="o-card_info">
+              <h4 class="f-preset:1">
+                <span data-activity="Exercise" data-current>-</span>
               </h4>
-              <p class="f-preset:6 f-color:navy-200">
-                Last Week - <span data-activity="Exercise" data-previous>0</span>
+              <p class="f-preset:4 f-color:navy-200">
+                Last Week -
+                <span data-activity="Exercise" data-previous>-</span>
               </p>
             </div>
           </div>
@@ -520,19 +524,20 @@
           </div>
           <div class="c-card u-flex:col u-flex_gap:0.5rem">
             <div class="u-flex:row u-flex_justify:space-between">
-              <h3 class="f-preset:5">Social</h3>
-              <button type="button">
+              <h3 class="f-preset:3">Social</h3>
+              <button class="o-btn_secondary" type="button">
                 <svg height="20" width="20">
                   <use href="./src/assets/icons.svg#icon-ellipsis" />
                 </svg>
               </button>
             </div>
-            <div class="u-flex:row u-flex_justify:space-between">
-              <h4 class="f-preset:3">
-                <span data-activity="Social" data-current>0</span>
+            <div class="o-card_info">
+              <h4 class="f-preset:1">
+                <span data-activity="Social" data-current>-</span>
               </h4>
-              <p class="f-preset:6 f-color:navy-200">
-                Last Week - <span data-activity="Social" data-previous>0</span>
+              <p class="f-preset:4 f-color:navy-200">
+                Last Week -
+                <span data-activity="Social" data-previous>-</span>
               </p>
             </div>
           </div>
@@ -546,19 +551,20 @@
           </div>
           <div class="c-card u-flex:col u-flex_gap:0.5rem">
             <div class="u-flex:row u-flex_justify:space-between">
-              <h3 class="f-preset:5">Self Care</h3>
-              <button type="button">
+              <h3 class="f-preset:3">Self Care</h3>
+              <button class="o-btn_secondary" type="button">
                 <svg height="20" width="20">
                   <use href="./src/assets/icons.svg#icon-ellipsis" />
                 </svg>
               </button>
             </div>
-            <div class="u-flex:row u-flex_justify:space-between">
-              <h4 class="f-preset:3">
-                <span data-activity="Self Care" data-current>0</span>
+            <div class="o-card_info">
+              <h4 class="f-preset:1">
+                <span data-activity="Self Care" data-current>-</span>
               </h4>
-              <p class="f-preset:6 f-color:navy-200">
-                Last Week - <span data-activity="Self Care" data-previous>0</span>
+              <p class="f-preset:4 f-color:navy-200">
+                Last Week -
+                <span data-activity="Self Care" data-previous>-</span>
               </p>
             </div>
           </div>

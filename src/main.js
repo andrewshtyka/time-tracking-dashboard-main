@@ -1,3 +1,5 @@
+import { gsap } from "gsap";
+
 initAndStart();
 
 //////////////////////////////////////////////////
@@ -9,22 +11,21 @@ async function initAndStart() {
   const dataArray = await getData();
   if (!dataArray) return;
 
-  const activeTabValue = document.querySelector("[data-tab-active]");
-  const activeTabTimeframe = activeTabValue.dataset.timeframe;
+  const activeTabTimeframe =
+    document.querySelector("[data-tab-active]").dataset.timeframe;
 
   populateData(dataArray, activeTabTimeframe);
 
   const tabsList = document.querySelectorAll("[data-timeframe]");
   tabsList.forEach((tabItem) => {
-    tabItem.addEventListener("click", (event) => {
+    tabItem.addEventListener("click", () => {
       document
         .querySelector("[data-tab-active]")
         .removeAttribute("data-tab-active");
 
       tabItem.setAttribute("data-tab-active", "");
 
-      const activeTabValue = document.querySelector("[data-tab-active]");
-      const activeTabTimeframe = activeTabValue.dataset.timeframe;
+      const activeTabTimeframe = tabItem.dataset.timeframe;
 
       populateData(dataArray, activeTabTimeframe);
     });
@@ -69,16 +70,32 @@ function populateData(array, timeframe) {
   activityElements.forEach((element) => {
     const activity = element.dataset.activity;
     const times = dataMap.get(activity);
-
     if (!times) return;
 
+    // define new value (to pass it into animation)
+    let newValue;
+    let isCurrent = false;
     if (element.hasAttribute("data-current")) {
-      element.textContent = times.current + (times.current > 1 ? "hrs" : "hr");
-    }
+      newValue = times.current;
+      isCurrent = true;
+    } else if (element.hasAttribute("data-previous")) {
+      newValue = times.previous;
+    } else return;
 
-    if (element.hasAttribute("data-previous")) {
-      element.textContent =
-        times.previous + (times.previous > 1 ? "hrs" : "hr");
-    }
+    // numbers animation
+    const oldText = element.textContent.replace(/[^\d]/g, "");
+    const oldValue = parseInt(oldText, 10) || 0;
+
+    const obj = { val: oldValue };
+
+    gsap.to(obj, {
+      val: newValue,
+      duration: 1,
+      ease: "circ.inOut",
+      onUpdate: () => {
+        const rounded = Math.round(obj.val);
+        element.textContent = rounded + (rounded > 1 ? "hrs" : "hr");
+      },
+    });
   });
 }

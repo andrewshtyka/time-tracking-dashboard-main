@@ -48,32 +48,33 @@ body {
 /* #region = FONTS */
 
 .f-preset\:1 {
-  font-size: 3.5rem;
+  /* it's pr3 for wide screens */
+  font-size: 2rem;
   line-height: 120%;
+
+  @media (width >= 48rem) {
+    font-size: 3.5rem;
+    line-height: 120%;
+  }
 }
 
 .f-preset\:2 {
-  font-size: 2.5rem;
-  line-height: 120%;
+  font-size: 1.5rem;
+  line-height: 115%;
+
+  @media (width >= 64rem) {
+    font-size: 2.5rem;
+    line-height: 120%;
+  }
 }
 
 .f-preset\:3 {
-  font-size: 2rem;
-  line-height: 120%;
-}
-
-.f-preset\:4 {
-  font-size: 1.5rem;
-  line-height: 115%;
-}
-
-.f-preset\:5 {
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 115%;
 }
 
-.f-preset\:6 {
+.f-preset\:4 {
   font-size: 0.938rem;
   font-weight: 400;
   line-height: 120%;
@@ -94,6 +95,12 @@ body {
 .c-menu {
   background-color: var(--color-navy-900);
   border-radius: 1rem;
+
+  @media (width >= 64rem) {
+    &.u-gc\:1\/4 {
+      grid-column: 1 / 2;
+    }
+  }
 }
 
 .c-user_info {
@@ -105,6 +112,12 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 1.5rem;
+
+  @media (width >= 64rem) {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+  }
 }
 
 .c-tab {
@@ -112,11 +125,23 @@ body {
   display: inline-block;
   width: 100%;
   padding-top: 1.5rem;
+
   padding-bottom: 1.5rem;
 
   text-align: center;
   color: var(--color-purple-500);
   transition: color 200ms ease-out;
+
+  @media (width >= 64rem) {
+    text-align: start;
+    padding: 0.75rem;
+    padding-inline: 2rem;
+
+    &:hover,
+    &:focus {
+      color: var(--color-white);
+    }
+  }
 }
 
 [data-tab-active] {
@@ -130,6 +155,7 @@ body {
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
 
+  transition: background-color 200ms ease-out;
   position: relative;
 
   &::before {
@@ -142,6 +168,14 @@ body {
     background-color: var(--color-navy-900);
     top: -0.725rem;
     left: 0;
+
+    transition: background-color 200ms ease-out;
+  }
+
+  @media (width >= 48rem) {
+    &.u-flex_gap\:0\.5rem {
+      gap: 1rem;
+    }
   }
 }
 
@@ -163,18 +197,26 @@ body {
 /* #region = LAYOUT */
 
 .o-bg {
-  padding: 5rem 1.5rem;
   display: grid;
   grid-template-columns: repeat(var(--col-num, 1), 1fr);
   gap: var(--gap-num, 1.5rem);
 
+  padding: 5rem 1.5rem;
+  width: 100%;
+
+  max-inline-size: 40rem;
+
   @media (width >= 48rem) {
     --col-num: 3;
+
+    max-inline-size: 56rem;
   }
 
   @media (width >= 64rem) {
     --col-num: 4;
     --gap-num: 2rem;
+
+    max-inline-size: 70rem;
   }
 }
 
@@ -194,11 +236,76 @@ body {
 
   @media (width >= 64rem) {
     --gap-num: 2rem;
+
+    &.u-gc\:1\/4 {
+      grid-column: 2 / 5;
+    }
   }
 }
 
 .o-card {
   border-radius: 1rem;
+  cursor: pointer;
+
+  @media (width >= 64rem) {
+    &:hover .c-card,
+    &:hover .c-card::before,
+    &:focus .c-card,
+    &:focus .c-card::before {
+      background-color: var(--color-navy-800);
+    }
+  }
+}
+
+.o-card_info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (width >= 48rem) {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+.o-btn_secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1.25rem;
+  height: 1.25rem;
+
+  transition: opacity 200ms ease-out;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1.25rem;
+  }
+
+  @media (width >= 64rem) {
+    &:hover,
+    &:focus {
+      opacity: 0.4;
+    }
+  }
+}
+
+.o-nav {
+  display: grid;
+  grid-template-columns: repeat(var(--col-num, 3), 1fr);
+  place-items: center;
+
+  @media (width >= 64rem) {
+    --col-num: 1;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
 }
 
 /* #endregion = LAYOUT */
@@ -229,16 +336,8 @@ body {
   gap: 0.5rem;
 }
 
-.u-grid {
-  display: grid;
-}
-
-.u-gc\:3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.u-grid_items\:center {
-  place-items: center;
+.u-gc\:1\/4 {
+  grid-column: 1 / 4;
 }
 
 .u-width\:100 {
