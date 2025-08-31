@@ -74,10 +74,8 @@ function populateData(array, timeframe) {
 
     // define new value (to pass it into animation)
     let newValue;
-    let isCurrent = false;
     if (element.hasAttribute("data-current")) {
       newValue = times.current;
-      isCurrent = true;
     } else if (element.hasAttribute("data-previous")) {
       newValue = times.previous;
     } else return;
