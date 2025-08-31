@@ -178,6 +178,15 @@ body {
       gap: 1rem;
     }
   }
+
+  @media (width >= 64rem) {
+    padding: 2rem;
+    padding-top: 1rem;
+
+    &::before {
+      height: 1rem;
+    }
+  }
 }
 
 .c-card_top {
