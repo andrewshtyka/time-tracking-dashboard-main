@@ -238,6 +238,10 @@ body {
 .o-img {
   outline: 3px solid var(--color-white);
   border-radius: 50%;
+
+  @media (width >= 64rem) {
+    width: 5rem;
+  }
 }
 
 .o-cards_list {
